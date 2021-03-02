@@ -130,6 +130,15 @@ public class ForMainMethod {
 				return o2.getValue()-o1.getValue();
 			}
 		};
+		
+		Comparator<Entry<Integer,Person1>> c=new Comparator<Entry<Integer,Person1>>() {
+			
+			@Override
+			public int compare(Entry<Integer, Person1> o1, Entry<Integer, Person1> o2) {
+				return o2.getValue().age-o1.getValue().age;
+			}
+		};
+		
 		Collections.sort(list,new Comparator<Map.Entry<Integer,Integer>>() {
 
 			//sort by values

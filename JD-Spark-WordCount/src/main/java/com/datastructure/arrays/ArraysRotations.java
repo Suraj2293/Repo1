@@ -12,8 +12,11 @@ public static void main(String[] args) {
     leftRotateWithRotateNumber(c, 2);
     System.out.println();
     int d[] = { 1, 3, 5, 7, 9 ,4,3,5,6,4,5}; 
-    rightRotateWithRotateNumber(d, 2);
-
+  //  rightRotateWithRotateNumber(d, 2);
+    // reverse string with char arrays
+    reverseCharArray("Suraj");
+    splitEvenOdd();
+    
 
 
 }
@@ -49,8 +52,49 @@ public static void rightRotateWithRotateNumber(int a[],int k){
 	int n=a.length;
 	int mod=k%n;
 	for(int i=a.length-1;i>=0;i--){
-		System.out.print(a[(n-(i+mod))%n]+" ");
+		System.out.print(a[(n-(i+mod))%n]+" ");	
 	}
 	
 }
+
+public static void reverseCharArray(String s){
+	// suraj
+	char[] c=s.toCharArray();
+	int start=0;
+	int end=s.length()-1;
+	while(start<end){
+		char temp=c[end];
+		c[end]=c[start];
+		c[start]=temp;
+		start++;
+		end--;
+	}
+	System.out.println(String.valueOf(c));
+}
+
+public static void splitEvenOdd(){
+	// suraj
+	int a[]={1,3,2,4,5,7,9,6};
+	int start=0;
+	int end=a.length-1;
+	while(start<end){
+		if(a[start]%2!=0 && a[end]%2==0){
+			int temp=a[end];
+			a[end]=a[start];
+			a[start]=temp;
+			start++;
+			end--;
+		}else if(a[start]%2!=0 && a[end]%2!=0){
+			end--;
+		}else if(a[start]%2==0 && a[end]%2==0){
+			start++;
+		}else if(a[start]%2==0 && a[end]%2!=0){
+			start++;
+		}
+		
+	}
+	System.out.println(Arrays.toString(a));
+}
+
+
 }

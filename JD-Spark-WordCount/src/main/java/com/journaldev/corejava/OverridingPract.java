@@ -3,8 +3,10 @@ package com.journaldev.corejava;
 public class OverridingPract {
 public static void main(String[] args) {
 	Parent p=new Child();
+	Child c=new Child();
 	p.a("abc");
 	p.b();
+	c.b();
 }
 	
 }
@@ -23,8 +25,12 @@ class Parent{
 	}
 	
 	// static method dont get override so it call this method instead of child method
+	// u cant even ovverride static method with same name but non static
 	public static void b(){
-		System.out.println("b static  method");
+		System.out.println("b static  parent method");
+	}
+	public final void c(){
+		System.out.println("b static  parent method");
 	}
 	
 }
@@ -45,5 +51,10 @@ class Child extends Parent{
 	public static void b(){
 		System.out.println("b static child method");
 	}
+	
+		// u cant even ovverride final method 
+	/*public final void c(){
+		System.out.println("b static  parent method");
+	}*/
 	
 }

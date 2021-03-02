@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -14,8 +15,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+
 public class StreamPract {
 	static public String f1="";
+	 static String rev1="";
+
+	
 public static void main(String[] args) {
 	List<String> list1=Arrays.asList("abc","surja","suraj","swaraj2");
 	List<String> list2=Arrays.asList("abc","akash","suraj1","swaraj","rutvik");
@@ -50,7 +55,8 @@ public static void main(String[] args) {
 	
 	int l=IntStream.of(1,2,3,4,5).min().getAsInt();
 	System.out.println(l);
-
+//============================================
+	Stream.of("a1", "a2", "a3").map(a -> a.substring(1)).map(a -> Integer.parseInt(a)).sorted(Comparator.reverseOrder()).forEach(a -> System.out.print(a));
 	
 	List<Person1> persons =
 		    Arrays.asList(
@@ -101,10 +107,21 @@ public static void main(String[] args) {
 String s1="Java Concept Of The Day";
 Arrays.stream(s1.split(" ")).forEach(a -> f1=a+" "+f1);
 System.out.println(f1);
-//sorted reverse order for non custom objects like integer or string
+String rev="suraj";
 
+Stream.of(rev.split("")).forEach(a -> rev1=a+""+ rev1);
+System.out.println(rev1);
+String aaa=Stream.of("suraj".split("")).collect(Collectors.joining(","));
+System.out.println(aaa);
+System.out.println("=============================");
+Stream.of("suraj".split("")).collect(Collectors.toCollection(LinkedList::new)).descendingIterator().forEachRemaining(a -> System.out.print(a));
+//sorted reverse order for non custom objects like integer or string
+System.out.println("=============================");
 List<Integer> l1=Arrays.asList(1, 2, 1, 3, 4, 2, 3).stream().sorted().collect(Collectors.toList());
 System.out.println(l1);
+
+Arrays.asList(1, 2, 1, 3, 4, 2, 3).stream().collect(Collectors.toCollection(LinkedList::new))
+.descendingIterator().forEachRemaining(System.out::print);
 
 List<Integer> l2=Arrays.asList(1, 2, 1, 3, 4, 2, 3).stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
 System.out.println(l2);
@@ -124,6 +141,27 @@ list=list.stream().filter(a -> a.startsWith("A")).map(a -> a.toUpperCase()).sort
 System.out.println(list);
 
 
+//===========================================================================List remove element from java 8=====================
+List<String> listRemove=new ArrayList<String>();
+listRemove.add("rutu");
+listRemove.add("rutu1");
+listRemove.add("swaru");
+listRemove.add("swaraj");
 
+listRemove.removeIf(a -> a.contains("swa"));
+System.out.println(listRemove);
+List<String> str1 = new ArrayList<String>();
+str1.add("A");
+str1.add("B");
+str1.add("C");
+str1.add("D");
 
+List<String> str2 = new ArrayList<String>();
+str2.add("D");
+str2.add("E");
+
+//str1.removeIf(x -> str2.contains(x));
+str1.removeIf(a -> a.startsWith("A"));
+
+str1.forEach(System.out::println);
 }}

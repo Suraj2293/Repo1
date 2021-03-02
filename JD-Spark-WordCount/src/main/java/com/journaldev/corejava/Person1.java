@@ -27,6 +27,6 @@ public class Person1 {
 
 	@Override
     public String toString() {
-        return name;
+        return name+" "+age;
     }
 }

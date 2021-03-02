@@ -20,7 +20,7 @@ public static void main(String[] args) {
 	System.out.println(distinctWithUniqueChars("karap",2));
 	distinctWithAllSubstringsOfK("aabccc",2);
 	smallWindOfChars("thhhis is atest string","tis");
-	String reverse=reverseString("123ABC456xyz");
+	String reverse=reverseStringRec("123ABC456xyz");
 	System.out.println(reverse);
 }
 public static void swapChar(String s){
@@ -238,4 +238,30 @@ for (int i =n-1; i >= 0; i--){
 }
 return output;
 }
+//Recursion
+public static String reverseStringRec(String str)
+{
+    if (str.isEmpty())
+        return str;
+    //Calling Function Recursively
+    return reverseString(str.substring(1)) + str.charAt(0);
+}
+
+
+//Char arrays
+public static void reverseCharArray(String s){
+	// suraj
+	char[] c=s.toCharArray();
+	int start=0;
+	int end=s.length()-1;
+	while(start<end){
+		char temp=c[end];
+		c[end]=c[start];
+		c[start]=temp;
+		start++;
+		end--;
+	}
+	System.out.println(String.valueOf(c));
+}
+
 }

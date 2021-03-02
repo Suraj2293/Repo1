@@ -29,7 +29,7 @@ public static void main(String[] args) {
 				//loans.add("abd");
 	
 			}
-			loans.add("abd");
+			loans.add(loans.indexOf("auto loan"),"abd");
 		}
 		System.out.println(loans);
 		

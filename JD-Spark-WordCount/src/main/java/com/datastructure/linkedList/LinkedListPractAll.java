@@ -62,7 +62,7 @@ public class LinkedListPractAll {
    	 else{
    		  Node temp = head;  
           head = newNode;  
-          head.next = temp;
+          head.next = temp;  
    	 }
    	 length++;
     }

@@ -37,9 +37,9 @@ public static void main(String[] args) {
 	q.enqueue(4);
 	q.enqueue(5);
 	q.dequeue();
-	q.dequeue();
-	q.dequeue();
-	q.dequeue();
+	//q.dequeue();
+	//q.dequeue();
+	//q.dequeue();
 	q.dequeue();
 	q.enqueue(9);
 for(int i=front;i<=rear;i++){
